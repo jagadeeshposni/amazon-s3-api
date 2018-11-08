@@ -17,25 +17,7 @@ public class s3APIApplication {
 
     public static void main(String args[]) throws InterruptedException {
 
-        AWSCredentials credentials = new BasicAWSCredentials("AKIAI36LDMONC6OHUW7A", "rrwQ0XSCuQ46ecszbsDvv7TJYZ44r1DhXTXH/E0P");
 
-        AmazonS3 s3Client = AmazonS3ClientBuilder
-                .standard()
-                .withCredentials(new AWSStaticCredentialsProvider(credentials))
-                .withRegion(Regions.AP_SOUTH_1)
-                .build();
-
-        List<Bucket> buckets = s3Client.listBuckets();
-        for(Bucket bucket: buckets){
-            System.out.println("bucket: " + bucket.getName());
-        }
-
-        Thread.sleep(5000);
-
-        String bucketName = "posni";
-        if(s3Client.doesBucketExistV2(bucketName)){
-            System.out.println(bucketName + " bucket Exists....");
-        }
         SpringApplication.run(s3APIApplication.class, args);
     }
 }
