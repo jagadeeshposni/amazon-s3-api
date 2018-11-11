@@ -1,3 +1,8 @@
 aws:
   aws_secret_key: TFRRcXBXa29TYnNlUVdickFBdlVReFZjS253RzdYM3FsUnI0dkFYdA==
   aws_access_key_id: QUtJQUlKRFA0TlEyNUpYTTI2Q1E=
+spring:
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
