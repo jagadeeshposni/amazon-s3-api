@@ -37,13 +37,7 @@ public class S3RestController {
 
     @GetMapping("s3/test")
     public ResponseEntity<String> testS3Connection(){
-        try {
             return new ResponseEntity<>(awsS3Service.testS3(), HttpStatus.OK);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        return null;
 
     }
 }

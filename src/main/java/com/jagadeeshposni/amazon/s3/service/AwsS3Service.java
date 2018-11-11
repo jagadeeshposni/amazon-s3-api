@@ -15,14 +15,13 @@ public class AwsS3Service {
     @Autowired
     private AwsS3Configuration awsConfig;
 
-    public String testS3() throws InterruptedException {
+    public String testS3()  {
         AmazonS3 s3Client = awsConfig.getAwsS3Client(Regions.AP_SOUTH_1.getName());
         List<Bucket> buckets = s3Client.listBuckets();
         for(Bucket bucket: buckets){
             System.out.println("bucket: " + bucket.getName());
         }
 
-        Thread.sleep(5000);
 
         String bucketName = "posni";
         if(s3Client.doesBucketExistV2(bucketName)){

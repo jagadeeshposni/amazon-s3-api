@@ -24,12 +24,10 @@ public class AwsS3Configuration {
     private AWSCredentials getCredentials() {
 
         Map<String, String> aws = ymlConfig.getAws();
-
         String awsAccessKeyId = new String(Base64Utils.decodeFromString(aws.get("aws_access_key_id")));
-
-        String awsSecretKey = new String(Base64Utils.decodeFromString(aws.get("aws_secret_key")).toString());
-
+        String awsSecretKey = new String(Base64Utils.decodeFromString(aws.get("aws_secret_key")));
         return new BasicAWSCredentials(awsAccessKeyId,awsSecretKey);
+
     }
 
     public AmazonS3 getAwsS3Client(String region) {
